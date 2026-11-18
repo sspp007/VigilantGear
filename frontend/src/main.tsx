@@ -1,10 +1,25 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.tsx";
+import '@fontsource-variable/inter';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { Toaster } from 'sonner';
+import { App } from './App';
+import { AuthProvider } from './lib/context/AuthProvider';
+import './index.css';
 
-createRoot(document.getElementById("root")!).render(
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Root element not found');
+}
+
+createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <AuthProvider>
+        <App />
+        <Toaster position="top-right" richColors closeButton />
+      </AuthProvider>
+    </BrowserRouter>
   </StrictMode>,
 );
