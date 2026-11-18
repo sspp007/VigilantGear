@@ -3,7 +3,7 @@ import { USER_ROLES } from '@/lib/constants/roles';
 import { USER_STATUS } from '@/lib/constants/userStatus';
 import { wait } from '@/lib/utils/delay';
 
-const TEMPORARY_PASSWORD = 'Welcome@123';
+export const TEMPORARY_PASSWORD = 'Welcome@123';
 const ACCESS_FIELDS = ['role', 'status'];
 
 function requireAdmin(users, actorId) {
