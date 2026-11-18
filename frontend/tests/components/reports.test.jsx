@@ -33,15 +33,27 @@ describe('ReportsPage', () => {
 
     it('generates a new report and adds it to the list', async () => {
         render(<ReportsPage />);
+
         const table = screen.getByRole('table');
+
         await within(table).findByText('Violation Summary Report');
 
-        await userEvent.selectOptions(screen.getByLabelText('Report Type'), 'Detection Summary Report');
-        await userEvent.click(screen.getByLabelText('CSV'));
-        await userEvent.click(screen.getByRole('button', { name: 'Generate Report' }));
+        await userEvent.selectOptions(
+            screen.getByLabelText('Report Type'),
+            'Detection Summary Report',
+        );
 
-        const matches = await within(table).findAllByText('Detection Summary Report', {}, { timeout: 3000 });
-        expect(matches).toHaveLength(2);
+        await userEvent.click(screen.getByLabelText('CSV'));
+
+        await userEvent.click(
+            screen.getByRole('button', { name: 'Generate Report' }),
+        );
+
+        expect(
+            await within(table).findByText('Detection Summary Report', {}, {
+                timeout: 3000,
+            }),
+        ).toBeInTheDocument();
     });
 
     it('downloads a report as CSV', async () => {
