@@ -17,7 +17,7 @@ export function DetectionDetailModal({ row, onClose }) {
         >
             {row && (
                 <div className="flex flex-col gap-5 sm:flex-row">
-                    <SafeImage src={row.snapshot} alt={`Snapshot of ${row.personId}`} className="h-28 w-28 shrink-0 rounded-xl" />
+                    <SafeImage src={row.snapshot} alt={`Snapshot of ${row.personId}`} variant="snapshot" className="h-28 w-28 shrink-0 rounded-xl" />
                     <dl className="grid flex-1 gap-3 text-sm">
                         <div>
                             <dt className="text-ink-muted">Status</dt>

@@ -20,7 +20,7 @@ export function ViolationsTable({ rows, rowOffset, sort, onSortChange, isLoading
             key: 'snapshot',
             header: 'Snapshot',
             cell: (record) => (
-                <SafeImage src={record.snapshot} alt={`Snapshot of ${record.personId}`} className="h-10 w-14 rounded-lg" />
+                <SafeImage src={record.snapshot} alt={`Snapshot of ${record.personId}`} variant="snapshot" className="h-10 w-14 rounded-lg" />
             ),
         },
         {

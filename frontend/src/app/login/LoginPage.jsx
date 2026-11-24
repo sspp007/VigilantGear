@@ -15,9 +15,7 @@ import { GoogleIcon, MicrosoftIcon } from '@/components/forms/ProviderIcons';
 import { useAuth } from '@/hooks/useAuth';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { getRememberedEmail } from '@/lib/api/authService';
-import { IMAGES } from '@/lib/constants/images';
 import { ROUTES } from '@/lib/constants/routes';
-import { DEMO_ACCOUNTS } from '@/lib/data/userData';
 import { loginSchema } from '@/lib/validators/authSchemas';
 
 const FEATURES = [
@@ -25,11 +23,6 @@ const FEATURES = [
     { icon: Video, label: 'Video Analysis', tile: 'bg-indigo-600' },
     { icon: BarChart3, label: 'Compliance Insights', tile: 'bg-brand' },
     { icon: ShieldCheck, label: 'Violation Tracking', tile: 'bg-pink-500' },
-];
-
-const DEMO_ACCOUNT_OPTIONS = [
-    { label: 'Admin', account: DEMO_ACCOUNTS.admin },
-    { label: 'Safety Manager', account: DEMO_ACCOUNTS.manager },
 ];
 
 export function LoginPage() {
@@ -43,7 +36,6 @@ export function LoginPage() {
     const {
         register,
         handleSubmit,
-        setValue,
         formState: { errors, isSubmitting },
     } = useForm({
         resolver: zodResolver(loginSchema),
@@ -72,14 +64,8 @@ export function LoginPage() {
         }
     }
 
-    function fillDemoAccount({ email, password }) {
-        setValue('email', email, { shouldValidate: true });
-        setValue('password', password, { shouldValidate: true });
-    }
-
     return (
         <AuthShell
-            image={IMAGES.loginWorker}
             badgeIcon={Cpu}
             badgeLabel="AI-Powered PPE Monitoring"
             headingLead="Welcome to"
@@ -172,22 +158,6 @@ export function LoginPage() {
                     Create Account
                 </Link>
             </p>
-
-            <div className="mt-5 rounded-xl bg-slate-50 p-3 text-xs text-ink-muted">
-                <p className="font-semibold text-ink">Demo accounts (Phase 1)</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                    {DEMO_ACCOUNT_OPTIONS.map(({ label, account }) => (
-                        <button
-                            key={label}
-                            type="button"
-                            onClick={() => fillDemoAccount(account)}
-                            className="rounded-lg border border-line bg-white px-2.5 py-1 font-semibold text-ink transition hover:border-brand hover:text-brand"
-                        >
-                            {`Fill ${label}`}
-                        </button>
-                    ))}
-                </div>
-            </div>
 
             <ForgotPasswordModal isOpen={isForgotPasswordOpen} onClose={() => setIsForgotPasswordOpen(false)} />
         </AuthShell>

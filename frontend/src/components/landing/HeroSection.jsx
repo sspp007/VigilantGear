@@ -1,9 +1,8 @@
 import { ArrowRight, Check, Cpu, Minus, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
-import { SafeImage } from '@/components/common/SafeImage';
+import { SafetyVisual } from '@/components/common/SafetyVisual';
 import { HERO_PPE_STATUS } from '@/lib/constants/landing';
-import { IMAGES } from '@/lib/constants/images';
 import { ROUTES } from '@/lib/constants/routes';
 import { cn } from '@/lib/utils/cn';
 
@@ -54,13 +53,9 @@ export function HeroSection() {
                     </div>
                 </div>
 
-                <div className="relative mx-auto h-[420px] w-full max-w-xl lg:h-[480px]">
-                    <SafeImage
-                        src={IMAGES.heroWorker}
-                        alt="Construction worker wearing a helmet and safety vest"
-                        loading="eager"
-                        className="absolute inset-0 h-full w-full rounded-3xl object-cover object-top shadow-2xl"
-                    />
+                <div className="relative mx-auto h-[360px] w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-2xl sm:h-[420px] lg:h-[480px]">
+                    <SafetyVisual variant="hero" label="AI construction safety monitoring view with a worker wearing a hard hat and reflective vest, detection boxes and confidence labels" className="absolute inset-0 h-full w-full" />
+                    <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20" />
                     <div className="absolute left-[24%] top-[14%] h-[58%] w-[34%] rounded-md border-2 border-green-500">
                         <span className="absolute -top-8 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-lg bg-green-500 px-3 py-1 text-sm font-bold">
                             Compliant
@@ -68,7 +63,7 @@ export function HeroSection() {
                         </span>
                     </div>
 
-                    <ul className="absolute bottom-6 right-3 w-56 space-y-2 rounded-2xl border border-white/20 bg-navy/70 p-3 backdrop-blur sm:right-0">
+                    <ul className="absolute bottom-4 right-3 w-56 space-y-2 rounded-2xl border border-white/25 bg-navy/90 p-3 shadow-xl backdrop-blur sm:bottom-6 sm:right-4">
                         {HERO_PPE_STATUS.map(({ id, label, detected, icon: Icon }) => (
                             <li key={id} className="flex items-center gap-2 text-sm font-semibold">
                                 <span

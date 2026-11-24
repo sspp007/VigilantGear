@@ -39,6 +39,7 @@ export function ResultVideoPlayer({ video, annotations }) {
                         src={IMAGES.constructionSite}
                         alt="Annotated construction site frame"
                         loading="eager"
+                        variant="video"
                         className="absolute inset-0 h-full w-full"
                     />
                     <DetectionOverlay detections={annotations} />

@@ -30,6 +30,7 @@ export function ViolationDetailModal({ record, onClose }) {
                     <SafeImage
                         src={record.snapshot}
                         alt={`Snapshot of ${record.personId}`}
+                        variant="snapshot"
                         className="h-32 w-32 shrink-0 rounded-xl"
                     />
                     <dl className="grid flex-1 gap-3 text-sm sm:grid-cols-2">

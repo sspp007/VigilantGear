@@ -34,6 +34,7 @@ export function RecentViolations({ records }) {
                                 <SafeImage
                                     src={record.snapshot}
                                     alt={`Snapshot of ${record.personId}`}
+                                    variant="snapshot"
                                     className="h-16 w-20 shrink-0 rounded-lg"
                                 />
                                 <div className="min-w-0 flex-1">

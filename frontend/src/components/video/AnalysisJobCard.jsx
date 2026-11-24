@@ -13,7 +13,7 @@ export function AnalysisJobCard({ job, onRetry, onDownload, onView }) {
     return (
         <li className="flex items-center gap-4 border-b border-line py-3 last:border-b-0">
             <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-xl">
-                <SafeImage src={job.thumbnail} alt={`Thumbnail of ${job.fileName}`} className="h-full w-full" />
+                <SafeImage src={job.thumbnail} alt={`Thumbnail of ${job.fileName}`} variant="video" className="h-full w-full" />
                 <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-ink shadow">
                         <Play className="h-4 w-4 fill-current" />

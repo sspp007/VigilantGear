@@ -75,6 +75,7 @@ export function LiveVideoStage({ videoRef, status, error, detections, onStart })
                             src={IMAGES.liveFrame}
                             alt="Camera preview placeholder"
                             loading="eager"
+                            variant="live"
                             className="absolute inset-0 h-full w-full opacity-50"
                         />
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-navy/60 p-6 text-center text-white">

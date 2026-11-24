@@ -38,7 +38,7 @@ function DetectionList({ rows, onSelect }) {
                         onClick={() => onSelect(row)}
                         className="flex w-full items-center gap-3 rounded-xl py-2.5 text-left transition hover:bg-slate-50"
                     >
-                        <SafeImage src={row.snapshot} alt={`Snapshot of ${row.personId}`} className="h-10 w-10 shrink-0 rounded-lg" />
+                        <SafeImage src={row.snapshot} alt={`Snapshot of ${row.personId}`} variant="snapshot" className="h-10 w-10 shrink-0 rounded-lg" />
                         <span className="min-w-0 flex-1">
                             <span className="block text-sm font-bold text-ink">{row.personId}</span>
                             <span className="block truncate text-xs text-ink-muted">

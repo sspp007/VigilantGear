@@ -49,7 +49,7 @@ export function DetectionDetailsTable({ rows, onSelectRow }) {
             key: 'snapshot',
             header: 'Snapshot',
             cell: (row) => (
-                <SafeImage src={row.snapshot} alt={`Snapshot of ${row.personId}`} className="h-10 w-10 rounded-lg" />
+                <SafeImage src={row.snapshot} alt={`Snapshot of ${row.personId}`} variant="snapshot" className="h-10 w-10 rounded-lg" />
             ),
         },
         { key: 'personId', header: 'Person ID', cell: (row) => <span className="font-semibold">{row.personId}</span> },

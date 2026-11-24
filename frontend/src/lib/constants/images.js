@@ -1,22 +1,16 @@
-const IMAGE_BASE = '/images';
-
+// No source footage is bundled with this demo. SafeImage renders its local,
+// context-specific SVG visual whenever these optional image slots are empty.
 export const IMAGES = Object.freeze({
-    heroWorker: `${IMAGE_BASE}/hero-worker.jpg`,
-    loginWorker: `${IMAGE_BASE}/login-worker.jpg`,
-    signupWorker: `${IMAGE_BASE}/signup-worker.jpg`,
-    constructionSite: `${IMAGE_BASE}/construction-site.jpg`,
-    liveFrame: `${IMAGE_BASE}/live-frame.jpg`,
+    heroWorker: null,
+    loginWorker: null,
+    signupWorker: null,
+    constructionSite: null,
+    liveFrame: null,
 });
 
-export const SNAPSHOT_IMAGES = Array.from(
-    { length: 6 },
-    (_, index) => `${IMAGE_BASE}/snapshots/snap-${index + 1}.jpg`,
-);
+export const SNAPSHOT_IMAGES = Array(6).fill(null);
 
-export const JOB_THUMBNAILS = Array.from(
-    { length: 3 },
-    (_, index) => `${IMAGE_BASE}/thumbs/thumb-${index + 1}.jpg`,
-);
+export const JOB_THUMBNAILS = Array(3).fill(null);
 
 export function getSnapshot(index) {
     return SNAPSHOT_IMAGES[index % SNAPSHOT_IMAGES.length];

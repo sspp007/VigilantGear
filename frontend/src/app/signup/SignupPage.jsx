@@ -12,7 +12,6 @@ import { LegalModal } from '@/components/forms/LegalModal';
 import { PasswordInput } from '@/components/forms/PasswordInput';
 import { useAuth } from '@/hooks/useAuth';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
-import { IMAGES } from '@/lib/constants/images';
 import { ROUTES } from '@/lib/constants/routes';
 import { signupSchema } from '@/lib/validators/authSchemas';
 
@@ -59,7 +58,6 @@ export function SignupPage() {
 
     return (
         <AuthShell
-            image={IMAGES.signupWorker}
             badgeIcon={UserPlus}
             badgeLabel="Create Your Account"
             headingLead="Join"

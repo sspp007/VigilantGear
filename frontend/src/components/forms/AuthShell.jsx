@@ -1,9 +1,11 @@
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Logo } from '@/components/common/Logo';
-import { SafeImage } from '@/components/common/SafeImage';
+import { SafetyVisual } from '@/components/common/SafetyVisual';
+import { ROUTES } from '@/lib/constants/routes';
 import { cn } from '@/lib/utils/cn';
 
 export function AuthShell({
-    image,
     badgeIcon: BadgeIcon,
     badgeLabel,
     headingLead,
@@ -15,12 +17,7 @@ export function AuthShell({
     return (
         <div className="grid min-h-screen lg:grid-cols-[1.1fr_1fr]">
             <section className="relative hidden overflow-hidden bg-navy text-white lg:block">
-                <SafeImage
-                    src={image}
-                    alt="Construction worker wearing PPE at a building site"
-                    loading="eager"
-                    className="absolute inset-0 h-full w-full object-cover object-right"
-                />
+                <SafetyVisual variant="auth" label="Construction worker wearing PPE with AI safety detection overlays" className="absolute inset-0 h-full w-full" />
                 <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/10" aria-hidden="true" />
 
                 <div className="relative z-10 flex h-full flex-col px-12 py-10 xl:px-20">
@@ -61,8 +58,12 @@ export function AuthShell({
                 </svg>
             </section>
 
-            <section className="flex items-center justify-center bg-gradient-to-br from-white via-orange-50/60 to-pink-100 px-4 py-10 sm:px-8">
+            <section className="flex items-center justify-center bg-gradient-to-br from-white via-orange-50/60 to-orange-100/70 px-4 py-6 sm:px-8 sm:py-10">
                 <div className="w-full max-w-md">
+                    <Link to={ROUTES.landing} className="mb-5 inline-flex min-h-10 items-center gap-2 rounded-lg px-2 text-sm font-bold text-ink-muted transition hover:bg-white hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                        <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                        Back to Home
+                    </Link>
                     <div className="mb-6 flex justify-center lg:hidden">
                         <Logo size="lg" />
                     </div>
